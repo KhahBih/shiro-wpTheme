@@ -7,6 +7,7 @@
         <?php shiro_entry_meta(); ?>
     </div>
     <div class="entry-content">
-
+        <?php shiro_entry_content(); ?>
+        <?php (is_single() ? shiro_entry_tag() : ''); ?>
     </div>
 </article>

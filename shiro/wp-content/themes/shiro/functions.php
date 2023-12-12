@@ -106,9 +106,72 @@ if(!function_exists('shiro_thumbnail')){
 
 if(!function_exists('shiro_entry_header')){
     function shiro_entry_header(){ ?>
-        <?php if(is_single()){
-            
-        }
+        <?php if(is_single()) : ?>
+            <h1><a href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+                <?php the_title(); ?>
+            </a></h1>
+        <?php else : ?>
+             <h2><a href='<?php the_permalink(); ?>' title='<?php the_title(); ?>'>
+                <?php the_title(); ?>
+            </a></h2>
+        <?php endif; ?>
+    <?php
+    }
+};
+
+if(!function_exists('shiro_entry_meta')){
+    function shiro_entry_meta(){ ?>
+        <?php if( !is_page()) : ?>
+            <div class="entry-meta">
+                <?php 
+                    printf( __('<span class="author">Posted by %1$s ', 'shiro'), get_the_author());
+                    printf( __('<span class="date-published"></br>At %1$s ', 'shiro'), get_the_date());
+                    printf( __('<span class="category"></br>Thể loại: %1$s</br>', 'shiro'), get_the_category_list(', '));
+
+                    if( comments_open()) : 
+                        echo '<span class="meta-reply">';
+                            comments_popup_link(__('leave a comment', 'shiro'),
+                            __('One comment', 'shiro'),
+                            __('% comment', 'shiro'),
+                            __('Read all comments', 'shiro'));
+                        echo '</span>';
+                    endif;
+                ?>
+            </div>
+        <?php endif; ?>
     <?php }
-}
-?>
+};
+
+if(!function_exists('shiro_entry_content')){
+    function shiro_entry_content(){ 
+        if(!is_single()){
+            the_excerpt();
+        }else{
+            the_content();
+        }
+        // Phân trang trong single
+        $link_pages = [
+            'before' => __('<p>Page: ','shiro'),
+            'after' => '</p>',
+            'nextpagelink' => __('Next page', 'shiro'),
+            'previouspagelink' => __('Previous page', 'shiro')
+        ];
+        wp_link_pages($link_pages);
+    }
+};
+
+function shiro_readmore(){
+    return '<a class="read-more" href="'. get_permalink( get_the_ID()). '" >'. __('[ Xem thêm ]', 'shiro') . '</a>';
+};
+add_filter('excerpt_more', 'shiro_readmore');
+
+// Hiển thị tag
+if(!function_exists('shiro_entry_tag')){
+    function shiro_entry_tag(){ 
+        if(has_tag()){
+            echo '<div class="entry-tag">';
+            printf(__('Tagged in %1$s', 'shiro'), get_the_tag_list('', ','));
+            echo '</div>';
+        }
+    }
+};

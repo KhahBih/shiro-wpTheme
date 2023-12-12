@@ -1,1 +1,1 @@
-Cài shiro vào
+Cài shiro vào thư mục cài xampp/htdocs
