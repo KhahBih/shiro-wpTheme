@@ -1,0 +1,83 @@
+<?php
+//project Page Options
+CSF::createSection( $fitmasthemeoption, array(
+    'title'  => esc_html__( 'Portfolio Page', 'fitmas' ),
+    'icon'   => 'fa fa-th-large',
+    'fields' => array(
+        array(
+            'id'       => 'fitmas_project_banner_enable',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Enable Banner', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show Banner.', 'fitmas' ),
+        ),
+        array(
+            'id'      => 'fitmas_portfolio_custom_slug',
+            'type'    => 'text',
+            'title'   => esc_html__( 'Custom Slug', 'fitmas' ),
+            'default' => esc_html( 'fitmas-project', 'fitmas' ),
+        ),
+        array(
+            'id'       => 'fitmas_portfolio_tag',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Tags', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show Portfolio Tags', 'fitmas' ),
+        ),
+        array(
+            'id'       => 'fitmas_portfolio_share',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Share Icon', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show Portfolio Share Button', 'fitmas' ),
+        ),
+        array(
+            'id'      => 'fitmas_portfolio_share_text',
+            'type'    => 'text',
+            'title'   => esc_html__( 'Share Text', 'fitmas' ),
+            'default' => esc_html( 'Share :', 'fitmas' ),
+            'dependency' => array( 'fitmas_portfolio_share', '==', 'true' ),
+        ),
+		array(
+		  'type'    => 'submessage',
+		  'style'   => 'success',
+		  'content' => esc_html__( 'Related Portfolio Options', 'fitmas' ),
+		),
+		array(
+            'id'       => 'fitmas_project_related',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Related Item', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show Related Project.', 'fitmas' ),
+        ),
+        array(
+            'id'         => 'fitmas_project_related_title',
+            'type'       => 'text',
+            'title'      => esc_html__( 'Related Title', 'fitmas' ),
+            'default'    => esc_html( 'Related Project', 'fitmas' ),
+            'dependency' => array( 'fitmas_project_related', '==', 'true' ),
+        ),
+		array(
+			'id'          => 'fitmas_portfolio_related_margin',
+			'type'        => 'spacing',
+			'title'       => esc_html__( 'Margin', 'fitmas' ),
+			'output'      => '.tp-related-portfolio-wrapper',
+			'dependency' => array( 'fitmas_project_related', '==', 'true' ),
+			'desc'     => esc_html__( 'Add Related margin Portfolio', 'fitmas' ),
+			'output_mode' => 'margin',
+			'default'     => array(
+				'top'       => '0',
+				'bottom'    => '170',
+				'unit'      => 'px',
+			),
+		),
+    ),
+) );

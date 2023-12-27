@@ -1,0 +1,37 @@
+2023-12-27T02:31:53+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php on line 190
+
+2023-12-27T03:27:27+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\xampp\htdocs\shiro/wp-content/themes/shiro/includes/custom-header.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php:171
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-settings.php(611): include()
+#1 C:\xampp\htdocs\shiro\wp-config.php(97): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\shiro\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\shiro\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php on line 171
+
+2023-12-27T03:28:55+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php on line 187
+
+2023-12-27T03:29:05+00:00 CRITICAL Uncaught Error: Failed opening required 'C:\xampp\htdocs\shiro/wp-content/themes/shiro/includes/theme-options.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php:37
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-includes\class-wp-hook.php(324): shiro_theme_setup('')
+#1 C:\xampp\htdocs\shiro\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\shiro\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\shiro\wp-settings.php(621): do_action('after_setup_the...')
+#4 C:\xampp\htdocs\shiro\wp-config.php(97): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\shiro\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\shiro\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\functions.php on line 37
+
+2023-12-27T03:57:08+00:00 CRITICAL Uncaught Error: Call to undefined function grt_theme_file_uri() in C:\xampp\htdocs\shiro\wp-content\themes\shiro\front-page.php:3
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\shiro\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\front-page.php on line 3
+
+2023-12-27T04:08:35+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\shiro\wp-includes\functions.php on line 2190
+

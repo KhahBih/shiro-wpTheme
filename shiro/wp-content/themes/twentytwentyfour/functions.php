@@ -1,206 +1,182 @@
 <?php
-/**
- * Twenty Twenty-Four functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Twenty Twenty-Four
- * @since Twenty Twenty-Four 1.0
- */
 
-/**
- * Register block styles.
- */
+// Theme-Setup
+add_action( 'after_setup_theme', 'shiro_theme_setup' );
 
-if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
-	/**
-	 * Register custom block styles
-	 *
-	 * @since Twenty Twenty-Four 1.0
-	 * @return void
-	 */
-	function twentytwentyfour_block_styles() {
+function shiro_theme_setup() {
 
-		register_block_style(
-			'core/details',
-			array(
-				'name'         => 'arrow-icon-details',
-				'label'        => __( 'Arrow icon', 'twentytwentyfour' ),
-				/*
-				 * Styles for the custom Arrow icon style of the Details block
-				 */
-				'inline_style' => '
-				.is-style-arrow-icon-details {
-					padding-top: var(--wp--preset--spacing--10);
-					padding-bottom: var(--wp--preset--spacing--10);
-				}
+//Set the content width based on the theme's design and stylesheet.
+	if ( !isset( $content_width ) )
+		$content_width = 900;
 
-				.is-style-arrow-icon-details summary {
-					list-style-type: "\2193\00a0\00a0\00a0";
-				}
+// This theme supports automatic feed links 
+	add_theme_support( 'automatic-feed-links' );
 
-				.is-style-arrow-icon-details[open]>summary {
-					list-style-type: "\2192\00a0\00a0\00a0";
-				}',
-			)
-		);
-		register_block_style(
-			'core/post-terms',
-			array(
-				'name'         => 'pill',
-				'label'        => __( 'Pill', 'twentytwentyfour' ),
-				/*
-				 * Styles variation for post terms
-				 * https://github.com/WordPress/gutenberg/issues/24956
-				 */
-				'inline_style' => '
-				.is-style-pill a,
-				.is-style-pill span:not([class], [data-rich-text-placeholder]) {
-					display: inline-block;
-					background-color: var(--wp--preset--color--base-2);
-					padding: 0.375rem 0.875rem;
-					border-radius: var(--wp--preset--spacing--20);
-				}
+// This theme supports post thumbnails
+	add_theme_support( 'post-thumbnails' );	
 
-				.is-style-pill a:hover {
-					background-color: var(--wp--preset--color--contrast-3);
-				}',
-			)
-		);
-		register_block_style(
-			'core/list',
-			array(
-				'name'         => 'checkmark-list',
-				'label'        => __( 'Checkmark', 'twentytwentyfour' ),
-				/*
-				 * Styles for the custom checkmark list block style
-				 * https://github.com/WordPress/gutenberg/issues/51480
-				 */
-				'inline_style' => '
-				ul.is-style-checkmark-list {
-					list-style-type: "\2713";
-				}
+	add_theme_support('custom-header', array(
+        'default-image'      => get_template_directory_uri() . '/images/default-header.jpg',
+        'default-text-color' => '000',
+        'width'              => 1200,
+        'height'             => 400,
+        'flex-height'        => true,
+        'flex-width'         => true,
+        'uploads'            => true,
+    ));
 
-				ul.is-style-checkmark-list li {
-					padding-inline-start: 1ch;
-				}',
-			)
-		);
-		register_block_style(
-			'core/navigation-link',
-			array(
-				'name'         => 'arrow-link',
-				'label'        => __( 'With arrow', 'twentytwentyfour' ),
-				/*
-				 * Styles for the custom arrow nav link block style
-				 */
-				'inline_style' => '
-				.is-style-arrow-link .wp-block-navigation-item__label:after {
-					content: "\2197";
-					padding-inline-start: 0.25rem;
-					vertical-align: middle;
-					text-decoration: none;
-					display: inline-block;
-				}',
-			)
-		);
-		register_block_style(
-			'core/heading',
-			array(
-				'name'         => 'asterisk',
-				'label'        => __( 'With asterisk', 'twentytwentyfour' ),
-				'inline_style' => "
-				.is-style-asterisk:before {
-					content: '';
-					width: 1.5rem;
-					height: 3rem;
-					background: var(--wp--preset--color--contrast-2, currentColor);
-					clip-path: path('M11.93.684v8.039l5.633-5.633 1.216 1.23-5.66 5.66h8.04v1.737H13.2l5.701 5.701-1.23 1.23-5.742-5.742V21h-1.737v-8.094l-5.77 5.77-1.23-1.217 5.743-5.742H.842V9.98h8.162l-5.701-5.7 1.23-1.231 5.66 5.66V.684h1.737Z');
-					display: block;
-				}
+// This theme uses wp_nav_menu() in one location
+	register_nav_menus( array(
+		'main-menu' => __( 'Primary Navigation', 'shiro' ),
+	) );
 
-				/* Hide the asterisk if the heading has no content, to avoid using empty headings to display the asterisk only, which is an A11Y issue */
-				.is-style-asterisk:empty:before {
-					content: none;
-				}
+// Register widgetized area and update sidebar with default widgets
+	add_action( 'widgets_init', 'shiro_widgets_init' );
 
-				.is-style-asterisk:-moz-only-whitespace:before {
-					content: none;
-				}
+// Load up the theme options page
+	require ( get_template_directory() . '/includes/theme-options.php' );
+	
+// Used to style the TinyMCE editor
+	add_editor_style( 'editor-style.css');
 
-				.is-style-asterisk.has-text-align-center:before {
-					margin: 0 auto;
-				}
+// Make theme available for translation, Translations can be filed in the /languages/ directory
+	load_theme_textdomain('shiro', get_template_directory() . '/languages');	
+	
+// This theme supports custom background (with backwards compatibility)
+	$args = array(
+		'default-color' => 'ffffff',
+	);
 
-				.is-style-asterisk.has-text-align-right:before {
-					margin-left: auto;
-				}
+	$args = apply_filters( 'shiro_custom_background_args', $args );
 
-				.rtl .is-style-asterisk.has-text-align-left:before {
-					margin-right: auto;
-				}",
-			)
-		);
+	if ( function_exists( 'wp_get_theme' ) ) {
+		add_theme_support( 'custom-background', $args );
+	} else {
+		define( 'BACKGROUND_COLOR', $args['default-color'] );
+	add_custom_background();
 	}
+}
+
+function shiro_head_script(){
+ ?>
+	 <!--[if lt IE 9]>
+		 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	 <![endif]-->
+ <?php
+ }
+add_action( 'wp_head', 'shiro_head_script' );
+
+function shiro_filter_wp_title( $title ) {
+    // Get the Site Name
+    $site_name = get_bloginfo( 'name' );
+    // Prepend it to the default output
+    $filtered_title = $site_name ." &laquo; ". $title;
+    // Return the modified title
+    return $filtered_title;
+}
+
+// Hook into 'wp_title'
+add_filter( 'wp_title', 'shiro_filter_wp_title' );
+
+
+// Register widgetized area and update sidebar with default widgets
+function shiro_widgets_init() {
+	register_sidebar( array (
+		'name' => __( 'Right sidebar', 'shiro' ),
+		'id' => 'sidebar',
+        'description' => __('The widget area on the right sidebar', 'shiro'),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+}
+
+function get_menu_slug($menu_name) {
+    $menu = wp_get_nav_menu_object($menu_name);
+
+    if ($menu) {
+        return $menu->slug;
+    }
+
+    return false;
+}
+
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'empty-menu' => __('Header Menu'),
+            // Thêm nhiều menu khác nếu cần
+        )
+    );
+}
+
+add_action('init', 'register_my_menus');
+
+// Remove predefined gallery styles
+add_filter( 'use_default_gallery_style', '__return_false' );
+
+
+//Comments
+function shiro_enqueue_comment_reply() {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { 
+		wp_enqueue_script( 'comment-reply' ); 
+	}
+}
+add_action( 'wp_enqueue_scripts', 'shiro_enqueue_comment_reply' );
+
+
+// Template for comments & pingbacks 
+if ( ! function_exists( 'shiro_comment' ) ) :
+
+function shiro_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case '' :
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+		<div class="comment-author vcard">
+			<?php printf( __( '%s <span class="says">says:</span>', 'shiro' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+		</div><!-- END .comment-author .vcard -->
+		<?php if ( $comment->comment_approved == '0' ) : ?>
+			<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'shiro' ); ?></em>
+			<br />
+		<?php endif; ?>
+		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+			<?php
+				printf( __( '%1$s at %2$s', 'shiro' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'shiro' ), ' ' );
+			?>
+		</div><!-- END .comment-meta .commentmetadata -->
+		<div class="comment-body"><?php comment_text(); ?></div>
+		<div class="reply">
+			<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		</div><!-- END .reply -->
+	</div><!-- END #comment-body  -->
+
+	<?php
+			break;
+		case 'pingback'  :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p><?php _e( 'Pingback:', 'shiro' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(edit)', 'shiro' ), ' ' ); ?></p>
+	<?php
+			break;
+	endswitch;
+}
 endif;
 
-add_action( 'init', 'twentytwentyfour_block_styles' );
+// This theme supports custom header
+require( get_template_directory() . '/includes/custom-header.php' );
 
-/**
- * Enqueue block stylesheets.
- */
 
-if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
-	/**
-	 * Enqueue custom block stylesheets
-	 *
-	 * @since Twenty Twenty-Four 1.0
-	 * @return void
-	 */
-	function twentytwentyfour_block_stylesheets() {
-		/**
-		 * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
-		 * for a specific block. These will only get loaded when the block is rendered
-		 * (both in the editor and on the front end), improving performance
-		 * and reducing the amount of data requested by visitors.
-		 *
-		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more info.
-		 */
-		wp_enqueue_block_style(
-			'core/button',
-			array(
-				'handle' => 'twentytwentyfour-button-style-outline',
-				'src'    => get_parent_theme_file_uri( 'assets/css/button-outline.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/button-outline.css' ),
-			)
-		);
-	}
-endif;
-
-add_action( 'init', 'twentytwentyfour_block_stylesheets' );
-
-/**
- * Register pattern categories.
- */
-
-if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
-	/**
-	 * Register pattern categories
-	 *
-	 * @since Twenty Twenty-Four 1.0
-	 * @return void
-	 */
-	function twentytwentyfour_pattern_categories() {
-
-		register_block_pattern_category(
-			'page',
-			array(
-				'label'       => _x( 'Pages', 'Block pattern category' ),
-				'description' => __( 'A collection of full page layouts.' ),
-			)
-		);
-	}
-endif;
-
-add_action( 'init', 'twentytwentyfour_pattern_categories' );
+ // Adds a class of .no-sidebar when there are no widgets in the right sidebar
+function shiro_body_classes( $classes ) {
+	if ( ! is_active_sidebar( 'sidebar' ) ) {
+    	$classes[] = 'no-sidebar';
+    }
+	return $classes;
+ }
+ add_filter( 'body_class', 'shiro_body_classes' );
+ 

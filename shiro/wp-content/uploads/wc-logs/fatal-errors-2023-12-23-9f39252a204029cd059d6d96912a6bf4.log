@@ -1,0 +1,56 @@
+2023-12-23T03:15:19+00:00 CRITICAL Uncaught Error: Call to undefined function get_menu_slug() in C:\xampp\htdocs\shiro\wp-content\themes\shiro\footer.php:5
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-includes\template.php(790): require_once()
+#1 C:\xampp\htdocs\shiro\wp-includes\template.php(725): load_template('C:\\xampp\\htdocs...', true, Array)
+#2 C:\xampp\htdocs\shiro\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\xampp\htdocs\shiro\wp-content\themes\shiro\page.php(13): get_footer()
+#4 C:\xampp\htdocs\shiro\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\shiro\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\footer.php on line 5
+
+2023-12-23T03:16:58+00:00 CRITICAL Uncaught Error: Call to undefined function get_menu_slug() in C:\xampp\htdocs\shiro\wp-content\themes\shiro\footer.php:5
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-includes\template.php(790): require_once()
+#1 C:\xampp\htdocs\shiro\wp-includes\template.php(725): load_template('C:\\xampp\\htdocs...', true, Array)
+#2 C:\xampp\htdocs\shiro\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\xampp\htdocs\shiro\wp-content\themes\shiro\page.php(13): get_footer()
+#4 C:\xampp\htdocs\shiro\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\shiro\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\footer.php on line 5
+
+2023-12-23T04:31:18+00:00 CRITICAL syntax error, unexpected token "if", expecting ")" in C:\xampp\htdocs\shiro\wp-content\themes\shiro\header.php on line 19
+
+2023-12-23T04:41:43+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:41:45+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:41:50+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:04+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:20+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:20+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:20+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:21+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:22+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:42:40+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:47:39+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:47:39+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:47:39+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:47:56+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+
+2023-12-23T04:48:04+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in C:\xampp\htdocs\shiro\wp-content\themes\default\functions.php on line 110
+

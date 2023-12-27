@@ -1,0 +1,105 @@
+<?php
+//Blog Page Options
+CSF::createSection( $fitmasthemeoption, array(
+    'parent' => 'fitmas_page_options',
+    'title'  => esc_html__( 'Blog Page', 'fitmas' ),
+    'icon'   => 'fa fa-pencil-square-o',
+    'fields' => array(
+        array(
+            'id'      => 'fitmas_blog_layout',
+            'type'    => 'select',
+            'title'   => esc_html__( 'Blog Layout', 'fitmas' ),
+            'options' => array(
+                'grid'          => esc_html__( 'Grid Full', 'fitmas' ),
+                'grid-ls'       => esc_html__( 'Grid With Left Sidebar', 'fitmas' ),
+                'grid-rs'       => esc_html__( 'Grid With Right Sidebar', 'fitmas' ),
+                'left-sidebar'  => esc_html__( 'Left Sidebar', 'fitmas' ),
+                'right-sidebar' => esc_html__( 'Right Sidebar', 'fitmas' ),
+            ),
+            'default' => 'right-sidebar',
+            'desc'    => esc_html__( 'Select blog page layout.', 'fitmas' ),
+        ),
+        array(
+            'id'       => 'fitmas_blog_banner_enable',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Enable Banner', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show Banner.', 'fitmas' ),
+        ),
+        array(
+            'id'         => 'fitmas_blog_title',
+            'type'       => 'text',
+            'title'      => esc_html__( 'Banner Title', 'fitmas' ),
+            'dependency' => array( 'fitmas_blog_banner_enable', '==', 'true' ),
+            'desc'       => esc_html__( 'Type blog banner title here.', 'fitmas' ),
+        ),
+        
+        array(
+            'id'       => 'fitmas_post_author',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Author Name', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post author name.', 'fitmas' ),
+        ),
+
+        array(
+            'id'       => 'fitmas_post_date',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Post Date', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post date.', 'fitmas' ),
+        ),
+
+        array(
+            'id'       => 'fitmas_cmnt_number',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Comment Number', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post comment number.', 'fitmas' ),
+        ),
+
+        array(
+            'id'       => 'fitmas_show_category',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Category Name', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post category name.', 'fitmas' ),
+        ),
+        array(
+            'id'       => 'fitmas_show_pagination',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Pagination', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post category name.', 'fitmas' ),
+        ),
+        array(
+            'id'       => 'fitmas_show_readmore',
+            'type'     => 'switcher',
+            'title'    => esc_html__( 'Show Readmore Button', 'fitmas' ),
+            'default'  => true,
+            'text_on'  => esc_html__( 'Yes', 'fitmas' ),
+            'text_off' => esc_html__( 'No', 'fitmas' ),
+            'desc'     => esc_html__( 'Hide / Show post category name.', 'fitmas' ),
+        ),
+        array(
+            'id'         => 'fitmas_blog_read_text',
+            'type'       => 'text',
+            'default'    => esc_html__( 'Read More', 'fitmas' ),
+            'title'      => esc_html__( 'Read More Text', 'fitmas' ),
+            'dependency' => array( 'fitmas_show_readmore', '==', 'true' ),
+            'desc'       => esc_html__( 'Add ReadMore Text here.', 'fitmas' ),
+        ),
+    ),
+) );
