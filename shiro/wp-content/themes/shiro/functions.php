@@ -182,5 +182,10 @@ function shiro_files(){
 	wp_enqueue_style('custom-google-fonts', get_theme_file_uri('//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i'));
 }
 
+function university_features(){
+	add_theme_support('title-tag');
+}
+
 add_action('wp_enqueue_scripts', 'shiro_files');
+add_action('after_setup_theme', 'university_features');
  
