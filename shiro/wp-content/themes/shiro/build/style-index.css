@@ -8,9 +8,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-a {
-  color: #0d3b66;
-}
+
 a:hover {
   text-decoration: none;
 }
@@ -1404,7 +1402,7 @@ body.admin-bar .search-overlay {
 .page-links .current_page_item {
   text-align: center;
   background-color: #f4e6b1;
-  color: #0d3b66;
+  color: white!important;
   font-weight: bold;
 }
 .page-links li a {
@@ -1495,3 +1493,10 @@ body.admin-bar .search-overlay {
   border-bottom: none;
   margin-bottom: 0;
 }
+
+
+/* Bình css */
+#meta-text a{
+	color: white!important;
+}
+/* Bình css hết */

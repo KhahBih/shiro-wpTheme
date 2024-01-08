@@ -849,7 +849,6 @@ form#commentform textarea#comment {
 }
 
 
-
 /** -- CSS3 MEDIA QUERIES FOR RESPONSIVE DESIGN -- **/
 @media screen and (max-width : 1350px) {
 #site-title{font-size:3em;}	

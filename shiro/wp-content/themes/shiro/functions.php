@@ -102,8 +102,10 @@ function get_menu_slug($menu_name) {
 function register_my_menus() {
     register_nav_menus(
         array(
-            'empty-menu' => __('Header Menu'),
-            // Thêm nhiều menu khác nếu cần
+            'headerMenu' => __('Header Menu'),
+			'footerLocationOne' => __('Footer location one'),
+			'footerLocationTwo' => __('Footer location two'),
+
         )
     );
 }

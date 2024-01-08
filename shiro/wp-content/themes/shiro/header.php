@@ -28,7 +28,7 @@
               <li><a href="#">Blog</a></li>
             </ul> -->
             <?php wp_nav_menu(array(
-                'theme_location' => 'main-menu',
+                'theme_location' => 'headerMenu',
                 'menu_class'     => 'my-header-menu', // Thêm class tùy chọn cho menu
             ));?>
           </nav>

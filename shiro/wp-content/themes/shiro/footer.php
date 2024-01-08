@@ -2,13 +2,6 @@
 	</div><!-- END wrapper -->	
 </div><!-- END #page -->
 <?php wp_footer(); ?>
-<?php $menu_slug = get_menu_slug('Empty Menu');
-
-if ($menu_slug) {
-    echo 'Slug của menu là: ' . $menu_slug;
-} else {
-    echo 'Không tìm thấy menu.';
-}?>
     <footer class="site-footer">
       <div class="site-footer__inner container container--narrow">
         <div class="group">
@@ -23,23 +16,33 @@ if ($menu_slug) {
             <div class="site-footer__col-two">
               <h3 class="headline headline--small">Explore</h3>
               <nav class="nav-list">
-                <ul>
+                <!-- <ul>
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">Programs</a></li>
                   <li><a href="#">Events</a></li>
                   <li><a href="#">Campuses</a></li>
-                </ul>
+                </ul> -->
+                <?php 
+                  wp_nav_menu(array(
+                    'theme_location' => 'footerLocationOne'
+                  ))
+                ?>
               </nav>
             </div>
 
             <div class="site-footer__col-three">
               <h3 class="headline headline--small">Learn</h3>
               <nav class="nav-list">
-                <ul>
+                <!-- <ul>
                   <li><a href="#">Legal</a></li>
                   <li><a href="#">Privacy</a></li>
                   <li><a href="#">Careers</a></li>
-                </ul>
+                </ul> -->
+                <?php 
+                  wp_nav_menu(array(
+                    'theme_location' => 'footerLocationTwo'
+                  ))
+                ?>
               </nav>
             </div>
           </div>

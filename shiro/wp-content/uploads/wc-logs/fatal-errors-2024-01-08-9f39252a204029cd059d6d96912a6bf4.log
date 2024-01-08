@@ -1,0 +1,10 @@
+2024-01-08T03:38:28+00:00 CRITICAL Uncaught Error: Call to undefined function the_excert() in C:\xampp\htdocs\shiro\wp-content\themes\shiro\index.php:26
+Stack trace:
+#0 C:\xampp\htdocs\shiro\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\shiro\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\shiro\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\shiro\wp-content\themes\shiro\index.php on line 26
+
+2024-01-08T12:36:12+00:00 CRITICAL syntax error, unexpected token "echo" in C:\xampp\htdocs\shiro\wp-content\themes\shiro\archive.php on line 10
+
